@@ -19,8 +19,8 @@ $ ps aux
 ```
 
 ## Network Namespace
-networks, namespaces are used by containers like Docker to implement network isolation.
-containers are separated from the underlying host using namespaces.
+networks namespaces are used by containers like Docker to implement network isolation.
+containers are separated from the underlying host using namespaces. The container can have its own virtual interfaces, routing and other tables.
 ```
 $ route
 ```
@@ -50,7 +50,7 @@ $ ip netns
 $ ip link
 ```
 
-- Exec inside the network namespace
+- Exec inside the network namespace. - list the interfaces inside the namespace
 
 ```
 $ ip netns exec red ip link
@@ -69,6 +69,7 @@ $ ip -n red link
 ```
 
 ## ARP and Routing Table
+arp command manipulates the System’s ARP cache. It also allows a complete dump of the ARP cache. ARP stands for Address Resolution Protocol. The primary function of this protocol is to resolve the IP address of a system to its mac address, and hence it works between level 2(Data link layer) and level 3(Network layer).
 
 > On the host
 ```
