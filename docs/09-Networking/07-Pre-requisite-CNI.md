@@ -5,7 +5,10 @@
 In this section, we will take a look at **Pre-requisite Container Network Interface(CNI)**
 The CNI is a set of standards that define how programs
 should be developed to solve networking challenges in a container runtime environment.
-
+Docker does not implement CNI. Docker has its own set of standards known as CNM which
+stands for Container Network Model which is another standard that aims at solving container networking.
+When kubernetes creates docker containers it creates them on the none network.
+It then invokes the configured CNI plugins who takes care of the rest of the configuration.
 ![net-7](../../images/net7.PNG)
 
 ## Third Party Network Plugin Providers
