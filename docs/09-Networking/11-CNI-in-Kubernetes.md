@@ -46,7 +46,18 @@ $ ls /opt/cni/bin
 ls /etc/cni/net.d
 
 ```
+If there are multiple files here,It will choose the one in alphabetical order.
 
+This is a format defined by the CNI standard for a plugin configuration file.
+
+. It’s name is mynet, type is bridge.
+
+ The isGateway defines whether the bridge network interface should get an IP address assigned so it can act as a gateway.
+ The ipMasquerade defines if a NAT rule should be added for IP masquerading. 
+ The IPAM section defines IPAM configuration.
+This is where you specify the subnet or the range of IP addresses that will be assigned to pods and any necessary routes. 
+The type host-local indicates that the IP addresses are managed locally on this host.
+Unlike a DHCP server maintaining it remotely. The type can also be set to DHCP to configure an external DHCP server.
 ## Format of Configuration File  
 
 ![net-2](../../images/net2.PNG)
