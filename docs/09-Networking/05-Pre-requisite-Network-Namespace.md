@@ -110,6 +110,10 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 ```
 
 ## Virtual Cable
+The veth devices are virtual Ethernet devices. They can act as tunnels between network namespaces.
+veth devices are always created in interconnected pairs.  A pair can be created using the command:
+
+# ip link add <p1-name> type veth peer name <p2-name>
 
 - To create a virtual cable
 ```
@@ -171,6 +175,8 @@ Address                  HWtype  HWaddress           Flags Mask            Iface
 ```
 
 ## Linux Bridge
+for more namespaces to communicate, we create a virtual bridge.
+it is an interface from the hosts perspective and a switch from the namespaces perspective
 
 - Create a network namespace
 
@@ -193,7 +199,7 @@ $ ip link
 ```
 $ ip link set dev v-net-0 up
 ```
-- To connect network namespace to the bridge. Creating a virtual cabel
+- To connect network namespace to the bridge. Creating a virtual cable
 ```
 $ ip link add veth-red type veth peer name veth-red-br
 
