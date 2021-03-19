@@ -19,7 +19,8 @@ $ ps aux
 ```
 
 ## Network Namespace
-
+networks, namespaces are used by containers like Docker to implement network isolation.
+containers are separated from the underlying host using namespaces.
 ```
 $ route
 ```
