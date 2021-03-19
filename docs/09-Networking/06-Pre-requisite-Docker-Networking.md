@@ -7,7 +7,7 @@ In this section, we will take a look at **Docker Networking**
 ## None Network
 
 - Running docker container with `none` network
-
+the docker container is not attached to any network.
 ```
 $ docker run --network none nginx
 ```
@@ -15,7 +15,12 @@ $ docker run --network none nginx
 ## Host Network
 
 - Running docker container with `host` network
-
+the container is attached to the host’s network.
+There is no network isolation between the host and the container.
+If you deploy a web application listening on port 80 in the container then the web application is available
+on port 80 on the host without having to do any additional port mapping.
+If you try to run another instance of the same container that listens on the same port it won't work
+as they share hosts networking and two processes cannot listen on the same port at the same time.
 ```
 $ docker run --network host nginx
 ```
@@ -23,7 +28,7 @@ $ docker run --network host nginx
 ## Bridge Network
 
 - Running docker container with `bridge` network
-
+internal private network - same as host interface docker0 - default 172.17.0.1
 ```
 $ docker run --network bridge nginx
 ```
@@ -68,7 +73,9 @@ $ ip addr show docker0
 ```
 
 ## Run the command to create a Docker Container
-
+Whenever a container is created Docker creates a network namespace and attaches it to the container
+it creates a pair of interfaces. Attaches one end to the container and another end to the bridge. The interface
+pairs can be identified using their numbers - odd-even pairs
 ```
 $ docker run nginx
 ```
@@ -129,7 +136,7 @@ $ docker inspect nginx | grep -w IPAddress
 ```
 
 - Accessing web page with the `curl` command.
-
+this url is accessible only from inside the host. to access it from outside docker creates nat rule
 ```
 $ curl --head  http://172.18.0.6:80
 HTTP/1.1 200 OK
