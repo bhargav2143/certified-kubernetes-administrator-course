@@ -4,7 +4,23 @@
 
 In this section, we will take a look at **Service Networking**
 
+
+How are the services getting these IP addresses and how are they made available across all the nodes?
+
+ Kube proxy watches the changes in the cluster through kube-api server, and every time a new service is to be created, kube-proxy gets into action. Services are a cluster wide concept. They exist across all the nodes in the cluster
+It's just a virtual object.
+Then how do they get an IP address and how were we able to access the application on the pod through service?
+When we create a service object in kubernetes, it is assigned an IP address from a pre-defined range.
+The kube-proxy components running on each node, get’s that IP address and creates forwarding rules on
+each node in the cluster, saying any traffic coming to this IP, the IP of the service, should go to the IP of the POD.
+Now remember it's not just the IP it's an IP and port combination.
+
+So how are these rules created? 
+kube-proxy supports different ways, such as userspace where kube-proxy
+listens on a port for each service and proxies connections to the pods. 
+If this is not set, it defaults to iptables.
 ## Service Types
+
 
 - ClusterIP 
 
