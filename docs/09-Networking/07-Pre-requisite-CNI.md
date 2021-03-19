@@ -3,7 +3,8 @@
   - Take me to [Lecture](https://kodekloud.com/courses/539883/lectures/9808284)
 
 In this section, we will take a look at **Pre-requisite Container Network Interface(CNI)**
-
+The CNI is a set of standards that define how programs
+should be developed to solve networking challenges in a container runtime environment.
 
 ![net-7](../../images/net7.PNG)
 
