@@ -90,7 +90,12 @@ Address                  HWtype  HWaddress           Flags Mask            Iface
 
 > On the host 
 ```
-$ route
+[root@ip-172-31-46-34 ec2-user]# route
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+default         ip-172-31-32-1. 0.0.0.0         UG    0      0        0 eth0
+instance-data.a 0.0.0.0         255.255.255.255 UH    0      0        0 eth0
+172.31.32.0     0.0.0.0         255.255.240.0   U     0      0        0 eth0
 ```
 
 > On the Network Namespace
