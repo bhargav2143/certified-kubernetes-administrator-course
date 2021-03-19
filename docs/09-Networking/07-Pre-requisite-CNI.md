@@ -10,6 +10,8 @@ stands for Container Network Model which is another standard that aims at solvin
 When kubernetes creates docker containers it creates them on the none network.
 It then invokes the configured CNI plugins who takes care of the rest of the configuration.
 ![net-7](../../images/net7.PNG)
+![image](https://user-images.githubusercontent.com/73539292/111773199-dbada780-88d3-11eb-8571-4aea1e61cf1e.png)
+
 
 ## Third Party Network Plugin Providers
 
