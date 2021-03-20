@@ -3,13 +3,18 @@
   - Take me to [Lecture](https://kodekloud.com/courses/certified-kubernetes-administrator-with-practice-tests/lectures/9808286)
 
 In this section, we will take a look at **Ingress**
+think of ingress as a layer 7 load balancer built-in to the kubernetes cluster that can be configured using native kubernetes primitives
 
+just like any other object in kubernetes.
 - Ingress Controller
 - Ingress Resources
 
 ## Ingress Controller
 
 - Deployment of **Ingress Controller**
+for a simple ingress controller we need a  a deployment of the nginx-ingress image, a service to expose it, a ConfigMap
+to feed nginx configuration data, and a service account with the right permissions to access all of these objects.
+
 
 ## ConfigMap
 
@@ -105,7 +110,7 @@ $ kubectl get service
 ```
 
 ## Ingress Resources
-
+an ingress resources is a set of rules and configurations applied on the ingress controller.
 ```
 Ingress-wear.yaml
 
