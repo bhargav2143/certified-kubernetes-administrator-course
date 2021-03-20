@@ -4,6 +4,26 @@
 
 In this section, we will take a look at **CoreDNS in the Kubernetes**
 
+Prior to version v1.12 the DNS implemented by kubernetes was known as kube-dns. With Kubernetes
+version 1.12 the recommended DNS server is CoreDNS.
+The CoreDNS server is deployed as a deployment in the kube-system namespace in the kubernetes cluster.
+for services it maps name to ip address whereas for pods 1.1.1.1 -> 1-1-1-1
+
+coredns exec : ./coredns
+config file: /etc/coredns/Corefile
+you have a number of plugins configured for handling errors, reporting health, monitoring metrics, cache etc.
+The plugin that makes CoreDNS work with Kubernetes, is the kubernetes plugin. 
+And this is where the top level domain name for the cluster is set. In this case cluster.local. So every record in the coredns DNS server falls under this domain. 
+Within the kubernetes plugin there are multiple options.
+The pods option is responsible for creating a record for PODs in the cluster.
+
+Remember we talked about a record being created for each POD by converting their IPs into a dashed
+format that's disabled by default.But it can be enabled with this entry here.
+
+Any record that this DNS server can’t solve, for example say a POD tries to reach www.google.com
+it is forwarded to the nameserver specified in the coredns pods /etc/resolv.conf file. The
+/etc/resolv.conf file is set to use the nameserver from the kubernetes Node. 
+Also note, that this core file is passed into the pod as a configMap object. 
 
 ## To view the Pod
 
@@ -56,7 +76,9 @@ Corefile:
 ```
 
 ## To view the Service 
-
+What address do the PODs use to reach the DNS server? When we deploy CoreDNS solution,
+It also creates a service to make it available to other components within a cluster.
+ The IP address of this service is configured as nameserver on the PODs
 ```
 $ kubectl get service -n kube-system
 NAME       TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)                  AGE
@@ -64,7 +86,7 @@ kube-dns   ClusterIP   10.96.0.10   <none>        53/UDP,53/TCP,9153/TCP   62m
 ```
 
 ## To view Configuration into the kubelet 
-
+The DNS configurations on PODs are done by kubernetes kubelet automatically when the PODs are created.
 ```
 $ cat /var/lib/kubelet/config.yaml | grep -A2  clusterDNS
 clusterDNS:
@@ -92,7 +114,9 @@ web-service.default.svc.cluster.local has address 10.106.112.101
 ```
 
 ## To view the `/etc/resolv.conf` file
-
+the resolv.conf file also has a search entry which is set to default.svc.cluster.local as well as svc.cluster.local and cluster.local.
+This allows you to find the service using any name. web-service or web-service.default or web-service.default.svc.
+search entry is only for pod
 ```
 $ kubectl run -it --rm --restart=Never test-pod --image=busybox -- cat /etc/resolv.conf
 nameserver 10.96.0.10
