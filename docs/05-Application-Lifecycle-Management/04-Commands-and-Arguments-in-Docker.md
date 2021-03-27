@@ -40,7 +40,9 @@ In this section, we will take a look at commands and arguments in docker
 
 
 FROM ubuntu
+
 ENTRYPOINT ["top", "-b"]
+
 CMD ["-c"]
 
 
