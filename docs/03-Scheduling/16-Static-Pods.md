@@ -2,6 +2,11 @@
   - Take me to [Video Tutorial](https://kodekloud.com/courses/539883/lectures/10352432)
   
 In this section, we will take a look at Static Pods
+Static Pods are managed directly by the kubelet daemon on a specific node, without the API server observing them. Unlike Pods that are managed by the control plane (for example, a Deployment); instead, the kubelet watches each static Pod (and restarts it if it fails).
+
+Static Pods are always bound to one Kubelet on a specific node.
+
+The kubelet automatically tries to create a mirror Pod on the Kubernetes API server for each static Pod. This means that the Pods running on a node are visible on the API server, but cannot be controlled from there. The Pod names will suffixed with the node hostname with a leading hyphen
 
 #### How do you provide a pod definition file to the kubelet without a kube-apiserver?
 - You can configure the kubelet to read the pod definition files from a directory on the server designated to store information about pods.
