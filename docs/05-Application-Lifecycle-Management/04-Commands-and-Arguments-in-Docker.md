@@ -37,9 +37,13 @@ In this section, we will take a look at commands and arguments in docker
  
   ![sleep1](../../images/sleep1.PNG)
   The main purpose of a CMD is to provide defaults for an executing container. These defaults can include an executable, or they can omit the executable, in which case you must specify an ENTRYPOINT instruction as well.
-  FROM ubuntu
+
+
+FROM ubuntu
 ENTRYPOINT ["top", "-b"]
 CMD ["-c"]
+
+
 - Now, build the docker image
   ```
   $ docker build -t ubuntu-sleeper .
