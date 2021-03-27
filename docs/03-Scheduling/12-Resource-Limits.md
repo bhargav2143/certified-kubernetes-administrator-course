@@ -2,13 +2,13 @@
   - Take me to [Video Tutorials](https://kodekloud.com/courses/539883/lectures/9816620)
   
 In this section we will take a look at Resource Limits
-
+When you specify the resource request for Containers in a Pod, the scheduler uses this information to decide which node to place the Pod on. When you specify a resource limit for a Container, the kubelet enforces those limits so that the running container is not allowed to use more of that resource than the limit you set. The kubelet also reserves at least the request amount of that system resource specifically for that container to use
 #### Let us take a look at 3 node kubernetes cluster.
 - Each node has a set of CPU, Memory and Disk resources available.
 - If there is no sufficient resources available on any of the nodes, kubernetes holds the scheduling the pod. You will see the pod in pending state. If you look at the events, you will see the reason as insufficient CPU.
   
   ![rl](../../images/rl.PNG)
-  
+ 
 ## Resource Requirements
 - By default, K8s assume that a pod or container within a pod requires **`0.5`** CPU and **`256Mi`** of memory. This is known as the **`Resource Request` for a container**.
   
