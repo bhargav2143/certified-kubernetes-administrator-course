@@ -8,7 +8,9 @@ In this section, we will take a look at DaemonSets.
   ![ds](../../images/ds.PNG)
   
 ## DaemonSets - UseCases
-
+running a cluster storage daemon on every node
+running a logs collection daemon on every node
+running a node monitoring daemon on every node
   ![ds-uc](../../images/ds-uc.PNG)
   
   ![ds-uc-kp](../../images/ds-uc-kp.PNG)
