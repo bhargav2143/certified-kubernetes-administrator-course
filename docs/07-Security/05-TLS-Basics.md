@@ -43,7 +43,10 @@ In this section, we will take a look at TLS Basics
   ![cert10](../../images/cert10.PNG)
   
 ## Public Key Infrastructure
-   
+this whole infrastructure including the CA, the servers, the people and the
+process of generating distributing and maintaining digital certificates is known as public key infrastructure
+
+or 
    ![pki](../../images/pki.PNG)
    
 ## Certificates naming convention
