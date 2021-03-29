@@ -2,7 +2,7 @@
   - Take me to [Video Tutorial]()
   
 In this section, we will take a look at security context
-
+A security context defines privilege and access control settings for a Pod or Container.
 ## Container Security
  ```
  $ docker run --user=1001 ubuntu sleep 3600
@@ -17,7 +17,7 @@ In this section, we will take a look at security context
  ![ksec](../../images/ksec.PNG)
 
 ## Security Context
-- To add security context on the container and a field called **`securityContext`** under the spec section.
+- To add security context on the pod level add a field called **`securityContext`** under the spec section.
   ```
   apiVersion: v1
   kind: Pod
