@@ -49,7 +49,7 @@ A security context defines privilege and access control settings for a Pod or Co
         runAsUser: 1000
   ```
   ![sxc2](../../images/sxc2.PNG)
-  
+  With Linux capabilities, you can grant certain privileges to a process without granting all the privileges of the root user. To add or remove Linux capabilities for a Container, include the capabilities field in the securityContext section of the Container manifest.
 - To add capabilities use the **`capabilities`** option
   ```
   apiVersion: v1
