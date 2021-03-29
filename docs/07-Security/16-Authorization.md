@@ -21,7 +21,11 @@ In this section, we will take a look at authorization in kubernetes
   - Webhook
   
 ## Node Authorization
-
+Node authorization is a special-purpose authorization mode that specifically authorizes API requests made by kubelets
+In order to be authorized by the Node authorizer, kubelets must use a credential that identifies them as being in the system:nodes group, with a username of system:node:<nodeName>.
+  
+ To enable the Node authorizer, start the apiserver with --authorization-mode=Node.
+To limit the API objects kubelets are able to write, enable the NodeRestriction admission plugin by starting the apiserver with --enable-admission-plugins=...,NodeRestriction,
   ![node-auth](../../images/node-auth.png)
   
 ## ABAC
