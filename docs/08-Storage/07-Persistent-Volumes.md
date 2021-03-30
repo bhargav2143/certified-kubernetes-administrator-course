@@ -3,7 +3,7 @@
   - Take me to [Lecture](https://kodekloud.com/courses/certified-kubernetes-administrator-with-practice-tests/lectures/9808275)
 
 In this section, we will take a look at **Persistent Volumes**
-
+ Kubernetes persistent volumes are used in situations where the data needs to be retained regardless of the pod lifecycle. Kubernetes volumes are used for storing temporary data.
 - In the large evnironment, with a lot of users deploying a lot of pods, the users would have to configure storage every time for each Pod.
 - Whatever storage solution is used, the users who deploys the pods would have to configure that on all pod definition files in his environment. Every time a change is to be made, the user would have to make them on all of his pods.
 
