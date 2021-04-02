@@ -47,7 +47,7 @@ $ cat > /etc/hosts
 ```
 
 ## Adding into the Corefile
-
+CoreDNS loads it’s configuration from a file named Corefile. Here is a simple configuration that instructs CoreDNS to fetch the IP to hostname mappings from the file /etc/hosts. When the DNS server is run, it now picks the Ips and names from the /etc/hosts file on the server.
 ```
 $ cat > Corefile
 . {
