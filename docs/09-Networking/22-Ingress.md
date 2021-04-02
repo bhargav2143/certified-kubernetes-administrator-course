@@ -3,6 +3,8 @@
   - Take me to [Lecture](https://kodekloud.com/courses/certified-kubernetes-administrator-with-practice-tests/lectures/9808286)
 
 In this section, we will take a look at **Ingress**
+Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster. Traffic routing is controlled by rules defined on the **Ingress resource**.
+
 think of ingress as a layer 7 load balancer built-in to the kubernetes cluster that can be configured using native kubernetes primitives
 
 just like any other object in kubernetes.
