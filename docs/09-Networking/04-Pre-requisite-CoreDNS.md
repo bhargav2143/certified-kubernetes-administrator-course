@@ -3,7 +3,10 @@
   - Take me to [Lecture](https://kodekloud.com/courses/539883/lectures/9927591)
 
 In this section, we will take a look at **CoreDNS**
+In the previous lecture we saw why you need a DNS server and how it can help manage name resolution in large environments with many hostnames and Ips and how you can configure your hosts to point to a DNS server. In this article we will see how to configure a host as a DNS server.
 
+
+We are given a server dedicated as the DNS server, and a set of Ips to configure as entries in the server. There are many DNS server solutions out there, in this lecture we will focus on a particular one – CoreDNS.
 ## Installation of CoreDNS
 
 ```
