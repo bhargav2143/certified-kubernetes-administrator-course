@@ -69,3 +69,7 @@ to it, can reach the ETCD server at any of its instances.
 
 You can read and write data through any of the available ETCD server instances.
 This is why we specify a list of etcd-servers in the kube-apiserver configuration.
+
+
+
+![image](https://user-images.githubusercontent.com/40159115/113578991-4b948f80-9641-11eb-8267-24d967a23aa3.png)
