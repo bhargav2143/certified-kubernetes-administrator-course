@@ -72,4 +72,4 @@ This is why we specify a list of etcd-servers in the kube-apiserver configuratio
 
 
 
-![image](https://user-images.githubusercontent.com/40159115/113578991-4b948f80-9641-11eb-8267-24d967a23aa3.png)
+https://d33wubrfki0l68.cloudfront.net/d1411cded83856552f37911eb4522d9887ca4e83/b94b2/images/kubeadm/kubeadm-ha-topology-stacked-etcd.svg
