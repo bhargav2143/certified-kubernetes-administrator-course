@@ -3,7 +3,9 @@
   
 In this section, we will take a look at os upgrades.
 
-#### If the node was down for more than 5 minutes, then the pods are terminated from that node
+#### If the node was down for more than 5 minutes, then the pods are terminated from that node.
+--pod-eviction-timeout duration     Default: 5m0s
+The grace period for deleting pods on failed nodes.
 
   ![os](../../images/os.PNG)
   
