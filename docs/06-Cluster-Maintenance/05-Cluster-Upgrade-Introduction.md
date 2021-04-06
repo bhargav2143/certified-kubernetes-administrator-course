@@ -8,7 +8,8 @@
 - The recommended approach is to upgrade one minor version at a time.
   
   ![up2](../../images/up2.PNG)
-  
+  ![image](https://user-images.githubusercontent.com/40159115/113715165-cecbe900-9706-11eb-9ef0-d7b4fc12e4d5.png)
+
 #### Options to upgrade k8s cluster
  
   ![opt](../../images/opt.PNG)
