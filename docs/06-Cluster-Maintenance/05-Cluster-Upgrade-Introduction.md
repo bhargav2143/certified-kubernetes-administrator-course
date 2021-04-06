@@ -26,6 +26,14 @@
   ![stg3](../../images/stg3.PNG)
   
 ## kubeadm - Upgrade master node
+First, you upgrade your master nodes and then upgrade the worker nodes while the master is being upgraded.
+The control plane components such as the API server.Scheduler and controller managers go down briefly, the master going down does not mean work or nodes and applications on the cluster are impacted.
+
+All workloads hosted on the worker nodes continue to serve users as normal.
+Since the master is done, all management functions are done. You cannot access the cluster using control or other components API.You cannot deploy new applications or delete or modify existing ones.The controller managers don't function either.
+If a power was to fail, a new pod won't be automatically created. But as long as the nodes and the pods are up, your applications should be up and users will not be impacted.
+Once the upgrade is complete and the cluster is back up, it should function normally.
+
 - kubeadm has an upgrade command that helps in upgrading clusters.
   ```
   $ kubeadm upgrade plan
