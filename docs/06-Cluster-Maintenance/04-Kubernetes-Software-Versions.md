@@ -19,8 +19,11 @@ $ kubectl get nodes
   
 #### Kubernetes follows a standard software release versioning procedure
 - You can find all kubernetes releases at https://github.com/kubernetes/kubernetes/releases
+
 **alpha release:** The features are disabled by default and maybe buggy.
+
 **beta release**  the code is well tested.The new features are enabled by default.
+
   ![r1](../../images/r1.PNG)
   
   ![r2](../../images/r2.PNG)
